@@ -2,15 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
- <title>Easy Ecommerce Website Builder - Start selling online | MyEasyStore</title>
- <link rel="icon" type="image/png" href="/favicon.png">
+  <title>Easy Ecommerce Website Builder - Start selling online | MyEasyStore</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
   <style>
     .brand-green { color: #005200; }
     .bg-brand-green { background-color: #005200; }
   </style>
+
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-50 font-sans">
+
+<body class="bg-gray-50 font-sans" style=" font-family: Poppins;">
 
   <!-- Header -->
   <nav class="bg-brand-green text-white p-4 flex justify-between">
@@ -26,7 +31,7 @@
   <!-- Form Section -->
 
 <section class="max-w-4xl mx-auto p-8">
-  <form action="{{ route('store.create') }}" method="POST" class="space-y-10 bg-white p-10 rounded-lg shadow">
+  <form action="{{ route('store.create') }}" id="storeForm" method="POST" class="space-y-10 bg-white p-10 rounded-lg shadow">
     @csrf
 
     <!-- Store URL -->
@@ -39,15 +44,14 @@
       </div>
       <label class="block font-semibold" style="color:#5e5e5e;">Pick a Username</label>
       <input type="text" name="username" id="username" value="{{ old('username') }}"
-             class="w-full border rounded p-2 focus:ring focus:ring-green-300" style="color:#070505;>
-      <small id="urlPreview" class="text-gray-500"></small>
-
+             class="w-full border rounded p-2 focus:ring focus:ring-green-300" style="color:#070505;">
 
        <p id="urlPreview" class="mt-1 text-sm font-semibold" style="color:#008f00;"></p>
 
         <!-- Validation errors -->
         <span id="usernameError" class="text-red-600 text-sm"></span>
         @error('username') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
+
     </div>
 
     <!-- Store Details -->
@@ -62,21 +66,23 @@
       <input type="text" name="store_name" value="{{ old('store_name') }}"
              class="w-full border rounded p-2 focus:ring focus:ring-green-300">
       @error('store_name') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
-
+      <span id="store_nameError" class="text-red-600 text-sm"></span>
+        <!-- Flat  -->
       <label class="block font-semibold mt-4" style="color:#5e5e5e;">Flat / Apartment / Unit</label>
       <input type="text" name="flat" value="{{ old('flat') }}"
-             class="w-full border rounded p-2 focus:ring focus:ring-green-300">
+             class="w-full border rounded p-2 focus:ring focus:ring-green-300" >
       @error('flat') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
-
+       <span id="flatError" class="text-red-600 text-sm"></span>
+       <!-- Store Address -->
       <label class="block font-semibold mt-4" style="color:#5e5e5e;">Store Address</label>
-      <input type="text" name="address" value="{{ old('address') }}"
-             class="w-full border rounded p-2 focus:ring focus:ring-green-300">
+      <input type="text" name="address"
+             class="w-full border rounded p-2 focus:ring focus:ring-green-300" placeholder="Start typing your building name..">
       @error('address') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
-
+     <span id="addressError" class="text-red-600 text-sm"></span>
       <!-- Store Category -->
       <label class="block font-semibold mt-4" style="color:#5e5e5e;">Store Category</label>
       <select name="category" class="w-full border rounded p-2 focus:ring focus:ring-green-300">
-        <option value="">Select a category</option>
+        <option value=""></option>
         <option>Arts, Crafts & Handmade Products</option>
         <option>Baby & Children's Products</option>
         <option>Beauty & Personal Care Products</option>
@@ -95,6 +101,7 @@
         <option>Others</option>
       </select>
       @error('category') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
+      <span id="categoryError" class="text-red-600 text-sm"></span>
     </div>
 
     <!-- Store Owner -->
@@ -105,25 +112,26 @@
         </svg>
         <h3 class="text-2xl font-semibold" style="color:#008f00;">Store Owner</h3>
       </div>
+       <!-- Owner Name -->
       <label class="block font-semibold" style="color:#5e5e5e;">Full Name</label>
       <input type="text" name="owner_name" value="{{ old('owner_name') }}"
              class="w-full border rounded p-2 focus:ring focus:ring-green-300">
       @error('owner_name') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
-
+      <span id="owner_nameError" class="text-red-600 text-sm"></span>
       <label class="block font-semibold mt-4" style="color:#5e5e5e;">WhatsApp Phone Number</label>
        <!-- Country Code -->
- <input type="text" name="phone" id="phone"
-       class="w-full border rounded p-2 focus:ring focus:ring-green-300"
-       style="color:#5e5e5e;"
-       placeholder="">
-<span id="phoneError" class="text-red-600 text-sm"></span>
-      @error('phone') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
+    <input type="text" name="phone" id="phone"        class="w-full border rounded p-2 focus:ring focus:ring-green-300"
+       style="color:#5e5e5e;"        placeholder="">
 
+      @error('phone') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
+      <span id="phoneError" class="text-red-600 text-sm"></span>
+      <!-- Email -->
       <label class="block font-semibold mt-4" style="color:#5e5e5e;">Email Address</label>
 
       <input type="text" name="email" value="{{ old('email') }}"
              class="w-full border rounded p-2 focus:ring focus:ring-green-300">
       @error('email') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
+      <span id="emailError" class="text-red-600 text-sm"></span>
     </div>
 
     <!-- Terms -->
@@ -132,11 +140,15 @@
         <input type="checkbox" name="terms" class="mr-2"> I agree to the Terms & Conditions
       </label>
       @error('terms') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
+     <br>  <span id="termsError" class="text-red-600 text-sm"></span>
     </div>
 
-    <button type="submit" class="bg-brand-green text-white px-6 py-3 rounded font-semibold w-full">
-      Create Online Store
-    </button>
+   <button type="submit"
+        class="px-6 py-3 rounded font-semibold w-full"
+        style="background-color:#008f00; color:white;font-size:20px;">
+    Create Online Store
+</button>
+
   </form>
 </section>
 
@@ -191,6 +203,11 @@
     </div>
   </footer>
 
+
+
+</body>
+</html>
+
 <script>
   const usernameInput = document.getElementById('username');
   const urlPreview = document.getElementById('urlPreview');
@@ -205,78 +222,6 @@
     });
   }
 </script>
-
-</body>
-</html>
-
-
-<script>
-document.querySelector("form").addEventListener("submit", function(e) {
-    let valid = true;
-
-    // Clear previous errors
-    document.querySelectorAll("span[id$='Error']").forEach(el => el.textContent = "");
-
-    // Username validation
-    let username = document.getElementById("username").value.trim();
-    if(username.length < 4 || username.length > 35 || !/^[a-zA-Z0-9]+$/.test(username)) {
-        document.getElementById("usernameError").textContent = "Invalid username: Min 4 chars, Max 35 chars, no spaces or special characters.";
-        valid = false;
-    }
-
-    // Store Name validation
-    let storeName = document.querySelector("input[name='store_name']").value.trim();
-    if(storeName.length < 3) {
-        document.getElementById("store_nameError").textContent = "Store name must be at least 3 characters.";
-        valid = false;
-    }
-
-    // Address validation
-    let address = document.querySelector("input[name='address']").value.trim();
-    if(address.length < 5) {
-        document.getElementById("addressError").textContent = "Store address must be at least 5 characters.";
-        valid = false;
-    }
-
-    // Category validation
-    let category = document.querySelector("select[name='category']").value;
-    if(category === "") {
-        document.getElementById("categoryError").textContent = "Please select a store category.";
-        valid = false;
-    }
-
-    // Owner Name validation
-    let ownerName = document.querySelector("input[name='owner_name']").value.trim();
-    if(ownerName.length < 4) {
-        document.getElementById("owner_nameError").textContent = "Owner name must be at least 4 characters.";
-        valid = false;
-    }
-
-    // Phone validation
-    let phone = document.querySelector("input[name='phone']").value.trim();
-    if(!/^\d{10}$/.test(phone)) {
-        document.getElementById("phoneError").textContent = "Phone number must be 10 digits.";
-        valid = false;
-    }
-
-    // Email validation
-    let email = document.querySelector("input[name='email']").value.trim();
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        document.getElementById("emailError").textContent = "Please enter a valid email address.";
-        valid = false;
-    }
-
-    // Terms validation
-    let terms = document.querySelector("input[name='terms']").checked;
-    if(!terms) {
-        document.getElementById("termsError").textContent = "You must agree to the Terms & Conditions.";
-        valid = false;
-    }
-
-    if(!valid) e.preventDefault(); // stop form submission if errors
-});
-</script>
-
 <script>
 const usernameInput = document.getElementById("username");
 const urlPreview = document.getElementById("urlPreview");
@@ -288,4 +233,79 @@ usernameInput.addEventListener("input", function() {
         urlPreview.textContent = "";
     }
 });
+</script>
+<script>
+document.getElementById("storeForm").addEventListener("submit", function(e) {
+    let valid = true;
+
+    // Clear previous errors
+    document.querySelectorAll("span[id$='Error']").forEach(el => el.textContent = "");
+
+    // Username validation
+    let username = document.getElementById("username").value.trim();
+    if (username.length < 4 || username.length > 35 || !/^[a-zA-Z0-9]+$/.test(username)) {
+        document.getElementById("usernameError").textContent =
+          "Invalid username: 4–35 chars, only letters/numbers.";
+        valid = false;
+    }
+
+    // Store Name validation
+    let storeName = document.querySelector("input[name='store_name']").value.trim();
+    if (storeName.length < 3) {
+        document.getElementById("store_nameError").textContent =
+          "Store name must be at least 3 characters.";
+        valid = false;
+    }
+
+    // Address validation
+    let address = document.querySelector("input[name='address']").value.trim();
+    if (address.length < 5) {
+        document.getElementById("addressError").textContent =
+          "Address must be at least 5 characters.";
+        valid = false;
+    }
+
+    // Category validation
+    let category = document.querySelector("select[name='category']").value;
+    if (category === "") {
+        document.getElementById("categoryError").textContent =
+          "Please select a store category.";
+        valid = false;
+    }
+
+    // Owner Name validation
+    let ownerName = document.querySelector("input[name='owner_name']").value.trim();
+    if (ownerName.length < 4) {
+        document.getElementById("owner_nameError").textContent =
+          "Owner name must be at least 4 characters.";
+        valid = false;
+    }
+
+    // Phone validation
+    let phone = document.querySelector("input[name='phone']").value.trim();
+    if (!/^\d{10}$/.test(phone)) {
+        document.getElementById("phoneError").textContent =
+          "Phone number must be exactly 10 digits.";
+        valid = false;
+    }
+
+    // Email validation
+    let email = document.querySelector("input[name='email']").value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById("emailError").textContent =
+          "Please enter a valid email address.";
+        valid = false;
+    }
+
+    // Terms validation
+    let terms = document.querySelector("input[name='terms']").checked;
+    if (!terms) {
+        document.getElementById("termsError").textContent =
+          "You must agree to the Terms & Conditions.";
+        valid = false;
+    }
+
+    if (!valid) e.preventDefault(); // stop form submission
+
+})
 </script>

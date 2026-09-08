@@ -3,15 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Easy Ecommerce Website Builder - Start selling online | MyEasyStore</title>
-     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
+     <link rel="icon" type="image/png"  sizes="32x32" href="{{ asset('images/favicon.png') }}">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     .brand-green { color: #005200; }
     .bg-brand-green { background-color: #005200; }
+
   </style>
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
 </head>
-<body class="bg-gray-50 font-sans">
+<body class="bg-gray-50 font-sans" style=" font-family: Poppins;">
 
   <!-- Navbar -->
   <nav class="bg-brand-green text-white p-4 flex justify-between">
@@ -30,7 +33,7 @@
     <div>
       <h1 class="text-4xl font-bold brand-green" style="font-size:40px;">Easy Ecommerce <br>Website Builder</h1>
       <p class="mt-4 text-gray-600">Sell directly to customers. Pay 0% commissions.</p>
-      <button class="mt-6 bg-brand-green text-white px-6 py-3 rounded font-semibold">Start 14-day free trial</button>
+      <button class="mt-6 bg-brand-green text-white px-6 py-3 rounded font-semibold">  <a href="{{ route('store.form') }}"  class="mt-6 bg-brand-green text-white px-6 py-3 rounded font-semibold"   > Start 14-day free trial</a></button>
     </div>
     <div>
       <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9oZXJvL3Byb2R1Y3QtaGVhZHBob25lcy53ZWJwIn0="
@@ -41,8 +44,8 @@
   <!-- MyEasyStore in Action -->
   <section class="p-12 grid md:grid-cols-2 gap-6 items-center bg-gray-100" style="background-color: #90EE90;">
     <div>
-      <h3 class="text-3xl  brand-green" style=" text-transform: uppercase;">MyEasyStore in Action</h3>
-      <h1 class="">Take a 10-minute walkthrough of the full <strong>MyEasyStore</strong> platform.</h1>
+      <p class=" brand-green" style=" text-transform: uppercase;" style="font-size:10px;">MyEasyStore in Action</p>
+      <h1 class="" style="font-size: 1.75rem">Take a 10-minute walkthrough of the full <strong>MyEasyStore</strong> platform.</h1>
       <button class="mt-6 bg-brand-green text-white px-6 py-3 rounded font-semibold">Watch Video</button>
     </div>
     <div>
@@ -66,7 +69,8 @@
       <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9ob3dpdHdvcmtzL2NyZWF0ZS1wcm9kdWN0LWNhdGFsb2d1ZS53ZWJwIn0="
            alt="Catalogue Example" class="w-full md:w-1/2 rounded shadow">
       <div class="md:w-1/2">
-        <h3 class="text-2xl font-semibold brand-green">Step 1: Create Catalogue</h3>
+         <p class="color-medium-green" style="font-size: 2.5em; margin: 0px;color:#b2ddb2"><strong>STEP 1</strong></p>
+         <p class="color-primary" style="font-size: 2rem;color:#008f00">Create catalogue</p>
         <p class="mt-2 text-gray-600">Add products, categories, and customize your store.</p>
       </div>
     </div>
@@ -76,7 +80,9 @@
       <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9ob3dpdHdvcmtzL3NoYXJlLW9ubGluZS1zdG9yZS1saW5rLndlYnAifQ="
            alt="Share Store Example" class="w-full md:w-1/2 rounded shadow">
       <div class="md:w-1/2">
-        <h3 class="text-2xl font-semibold brand-green">Step 2: Share Online Store</h3>
+        <p class="color-medium-green" style="font-size: 2.5em; margin: 0px;color:#b2ddb2"><strong>STEP 2</strong></p>
+        <p class="color-primary" style="font-size: 2rem;color:#008f00"> Share Online Store</p>
+
         <p class="mt-2 text-gray-600">Share your store link to accept orders directly.</p>
       </div>
     </div>
@@ -86,7 +92,9 @@
       <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9ob3dpdHdvcmtzL29yZGVycy1ub3RpZmljYXRpb24tZGFzaGJvYXJkLTIud2VicCJ9"
            alt="Orders Dashboard" class="w-full md:w-1/2 rounded shadow">
       <div class="md:w-1/2">
-        <h3 class="text-2xl font-semibold brand-green">Step 3: Receive Orders</h3>
+        <p class="color-medium-green" style="font-size: 2.5em; margin: 0px;color:#b2ddb2"><strong>STEP 3</strong></p>
+        <p class="color-primary" style="font-size: 2rem;color:#008f00"> Receive Orders</p>
+
         <p class="mt-2 text-gray-600">Get notified on WhatsApp & email. Track everything in your dashboard.</p>
       </div>
     </div>
@@ -96,7 +104,9 @@
       <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9ob3dpdHdvcmtzL2Rhc2hib2FyZC1kZWxpdmVyeS1pbnRlZ3JhdGlvbi0yLndlYnAifQ=="
            alt="Delivery Options" class="w-full md:w-1/2 rounded shadow">
       <div class="md:w-1/2">
-        <h3 class="text-2xl font-semibold brand-green">Step 4: Deliver Orders</h3>
+         <p class="color-medium-green" style="font-size: 2.5em; margin: 0px;color:#b2ddb2"><strong>Step 4</strong></p>
+        <p class="color-primary" style="font-size: 2rem;color:#008f00"> Deliver Orders</p>
+
         <p class="mt-2 text-gray-600">Ship orders with multiple delivery partners, directly from your store.</p>
       </div>
     </div>
