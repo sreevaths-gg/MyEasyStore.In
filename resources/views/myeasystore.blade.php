@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MyEasyStore</title>
+  <title>Easy Ecommerce Website Builder - Start selling online | MyEasyStore</title>
+     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     .brand-green { color: #005200; }
     .bg-brand-green { background-color: #005200; }
   </style>
+
 </head>
 <body class="bg-gray-50 font-sans">
 
@@ -18,14 +20,15 @@
       <a href="#features">Features</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
-      <a href="#trial" class="bg-white text-brand-green px-3 py-1 rounded">Start Free Trial</a>
+     <a href="{{ route('store.form') }}"    class="bg-white px-3 py-1 rounded"     style="color:#008f00;">    Start Free Trial </a>
     </div>
+
   </nav>
 
   <!-- Title Section -->
   <section class="p-12 grid md:grid-cols-2 gap-6 items-center">
     <div>
-      <h1 class="text-4xl font-bold brand-green">Easy Commerce Website</h1>
+      <h1 class="text-4xl font-bold brand-green" style="font-size:40px;">Easy Ecommerce <br>Website Builder</h1>
       <p class="mt-4 text-gray-600">Sell directly to customers. Pay 0% commissions.</p>
       <button class="mt-6 bg-brand-green text-white px-6 py-3 rounded font-semibold">Start 14-day free trial</button>
     </div>

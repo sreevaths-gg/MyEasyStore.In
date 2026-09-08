@@ -18,4 +18,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/myeasystore', [MyEasyStoreController::class, 'index']);
+Route::get('/myeasystore.in', [MyEasyStoreController::class, 'index']);
+Route::get('/myeasystore.in/checkout', [MyEasyStoreController::class, 'showForm'])->name('store.form');
+Route::post('/myeasystore.in/checkout', [MyEasyStoreController::class, 'store'])->name('store.create');
+
