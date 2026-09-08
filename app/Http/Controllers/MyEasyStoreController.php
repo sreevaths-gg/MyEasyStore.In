@@ -32,8 +32,18 @@ class MyEasyStoreController extends Controller
     }
 
     public function showForm()
-{
-    return view('storeform');
-}
+    {
+        return view('storeform');
+    }
+
+ public function about()
+    {
+        return view('about');
+    }
+
+     public function features()
+    {
+        return view('features');
+    }
 
 }

@@ -1,0 +1,93 @@
+   .brand-green { color: #005200; }
+    .bg-brand-green { background-color: #005200; }
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0; left: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  z-index: 1001; /* above overlay */
+ font-weight: bold;
+}
+/* Overlay background */
+#overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); /* semi-transparent black */
+  display: none; /* hidden by default */
+  z-index: 1000; /* below sidebar */
+}
+.sidebar a {
+  padding: 12px 24px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #008f00; /* green text */
+  display: block;
+}
+
+.sidebar a:hover {
+  background-color: #f0f0f0;
+  text-decoration: underline;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px; right: 25px;
+  font-size: 30px;
+  color: #008f00;
+  cursor: pointer;
+}
+
+.trialBtn {
+  background-color: #008f00;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.trialBtn:hover {
+  background-color: #006f00;
+}
+
+.sidebar-footer {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.sidebar-footer .logo {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.brand-heading {
+  color: #008f00;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.sidebar-footer p {
+  color: #008f00;
+  font-size: 14px;
+  margin: 5px 0;
+}
+.contact-item {
+  text-align: left;       /* aligns the whole line left */
+  font-size: 16px;        /* adjust text size */
+  color: #008f00;         /* green text */
+  margin: 5px 15px;          /* spacing between lines */
+
+}
+
+.contact-item i {
+  margin-right: 8px;      /* space between icon and text */
+  color: #008f00;         /* make icon green too */
+  font-size: 18px;        /* slightly larger icon */
+}

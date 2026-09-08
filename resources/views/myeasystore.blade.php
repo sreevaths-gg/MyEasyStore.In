@@ -3,103 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Easy Ecommerce Website Builder - Start selling online | MyEasyStore</title>
-     <link rel="icon" type="image/png"  sizes="32x32" href="{{ asset('images/favicon.png') }}">
+  <link rel="icon" type="image/png"  sizes="32x32" href="{{ asset('images/favicon.png') }}">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="{{ asset('js/app.js') }}"></script>
 
   <style>
-    .brand-green { color: #005200; }
-    .bg-brand-green { background-color: #005200; }
-.sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  top: 0; left: 0;
-  background-color: #ffffff;
-  overflow-x: hidden;
-  transition: 0.3s;
-  padding-top: 60px;
-  z-index: 1001; /* above overlay */
-}
-/* Overlay background */
-#overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5); /* semi-transparent black */
-  display: none; /* hidden by default */
-  z-index: 1000; /* below sidebar */
-}
-.sidebar a {
-  padding: 12px 24px;
-  text-decoration: none;
-  font-size: 18px;
-  color: #008f00; /* green text */
-  display: block;
-}
-
-.sidebar a:hover {
-  background-color: #f0f0f0;
-}
-
-.closeBtn {
-  position: absolute;
-  top: 20px; right: 25px;
-  font-size: 30px;
-  color: #008f00;
-  cursor: pointer;
-}
-
-.trialBtn {
-  background-color: #008f00;
-  color: white;
-  font-size: 16px;
-  padding: 10px 20px;
-  margin: 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.trialBtn:hover {
-  background-color: #006f00;
-}
-
-.sidebar-footer {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.sidebar-footer .logo {
-  width: 80px;
-  margin-bottom: 10px;
-}
-
-.brand-heading {
-  color: #008f00;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.sidebar-footer p {
-  color: #008f00;
-  font-size: 14px;
-  margin: 5px 0;
-}
-.contact-item {
-  text-align: left;       /* aligns the whole line left */
-  font-size: 16px;        /* adjust text size */
-  color: #008f00;         /* green text */
-  margin: 5px 15px;          /* spacing between lines */
-  margin:
-}
-
-.contact-item i {
-  margin-right: 8px;      /* space between icon and text */
-  color: #008f00;         /* make icon green too */
-  font-size: 18px;        /* slightly larger icon */
-}
 
   </style>
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -133,7 +43,7 @@
   <a href="#demostores">DEMO STORES</a>
   <a href="#testimonials">TESTIMONIALS</a>
   <a href="#faq">FAQ</a>
-  <a href="#about">ABOUT</a>
+  <a href="{{route('store.about') }}">ABOUT</a>
   <a href="#blog">BLOG</a>
 
   <!-- Start Free Trial button -->
@@ -322,7 +232,7 @@
   <!-- Show All Features Button -->
   <div class="text-center mt-12">
     <button class="bg-brand-green text-white px-6 py-3 rounded font-semibold hover:bg-green-700">
-      Show All Features
+        <a href="{{ route('store.features') }}">      Show All Features </a>
     </button>
   </div>
 </section>
@@ -412,7 +322,7 @@
 </section>
 
 <!-- Testimonials -->
-<section class="p-12 bg-gray-50" style="background-color: #90EE90;">
+<section id="testimonials" class="p-12 bg-gray-50" style="background-color: #90EE90;">
   <h2 class="text-3xl font-bold brand-green text-center mb-8">
     What our customers have to say
   </h2>
@@ -658,56 +568,5 @@
 
 </body>
 </html>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const sidebar = document.getElementById("sidebar");
-  const overlay = document.getElementById("overlay");
-  const menuBtn = document.getElementById("menuBtn");
-  const openSidebarBtn = document.getElementById("openSidebarBtn");
-  const closeBtn = document.getElementById("closeBtn");
-
-  // Open sidebar
-  if (menuBtn) {
-    menuBtn.onclick = function() {
-      sidebar.style.width = "250px";
-      overlay.style.display = "block";
-    };
-  }
-  if (openSidebarBtn) {
-    openSidebarBtn.onclick = function() {
-      sidebar.style.width = "250px";
-      overlay.style.display = "block";
-    };
-  }
-
-  // Close sidebar with X button
-  if (closeBtn) {
-    closeBtn.onclick = function() {
-      sidebar.style.width = "0";
-      overlay.style.display = "none";
-    };
-  }
-
-  // Close sidebar when clicking outside (overlay)
-  overlay.onclick = function() {
-    sidebar.style.width = "0";
-    overlay.style.display = "none";
-  };
-
-  // Smooth scroll + close sidebar when clicking a link
-  document.querySelectorAll(".sidebar a").forEach(link => {
-    link.addEventListener("click", function(e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href"); // e.g. "#faq"
-      const target = document.querySelector(targetId);
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
-      }
-      sidebar.style.width = "0";
-      overlay.style.display = "none";
-    });
-  });
-});
-</script>
 
 

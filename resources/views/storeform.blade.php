@@ -5,23 +5,62 @@
   <title>Easy Ecommerce Website Builder - Start selling online | MyEasyStore</title>
   <link rel="icon" type="image/png" href="/favicon.png">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="{{ asset('js/app.js') }}"></script>
   <style>
     .brand-green { color: #005200; }
     .bg-brand-green { background-color: #005200; }
   </style>
-
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body class="bg-gray-50 font-sans" style=" font-family: Poppins;">
 
-  <!-- Header -->
+<!-- Navbar -->
   <nav class="bg-brand-green text-white p-4 flex justify-between">
-    <div class="font-bold text-xl">MyEasyStore</div>
-  </nav>
+     <div class="flex items-center">
+    <div id="menuBtn" class="hamburger">&#9776;</div>
+    <span class="ml-4 font-bold">MyEasyStore</span>
+    </div>
+    <div class="space-x-6 font-semibold">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+     <a href="{{ route('store.form') }}"    class="bg-white px-3 py-1 rounded"     style="color:#008f00;">    Start Free Trial </a>
+    </div>
 
+  </nav>
+<!-- Sidebar (place here, right after header) -->
+<div id="sidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closeBtn" id="closeBtn">&times;</a>
+  <h1 class="sidebar-title" style=" color: #008f00;   text-align: center; font-size: 25px;   margin: 10px 0 20px;   font-weight: bold;  ">Menu </h1>
+  <a href="#home">HOME</a>
+  <a href="#pricing">PRICING PLANS</a>
+  <a href="#howitworks">HOW IT WORKS</a>
+  <a href="#features">FEATURES</a>
+  <a href="#demostores">DEMO STORES</a>
+  <a href="#testimonials">TESTIMONIALS</a>
+  <a href="#faq">FAQ</a>
+<a href="{{ route('store.about') }}">ABOUT</a>
+
+  <a href="#blog">BLOG</a>
+
+  <!-- Start Free Trial button -->
+  <button class="bg-brand-green text-white rounded font-semibold ml-6" style="color:#ffffff"><a href="{{ route('store.form') }}"     > Start  free trial</a></button>
+
+  <!-- Logo + heading -->
+  <div class="sidebar-footer ml-6">
+    <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9teWVhc3lzdG9yZS1sb2dvLWdyZWVuLndlYnAifQ==" alt="MyEasyStore Logo" class="logo">
+    <h3 class="contact-item brand-heading">MyEasyStore</h3>
+
+    <!-- Contact -->
+    <p class="contact-item"><i class="fas fa-comments" style="text-align: left;"></i> Chat Now</p>
+    <p class="contact-item"><i class="fas fa-envelope" style="text-align: left;"></i> hello@myeasystore.in</p>
+  </div>
+</div>
+<div id="overlay"></div>
   <!-- Banner Block -->
   <section class="bg-brand-green text-white max-w-3xl mx-auto mt-8 rounded-lg shadow text-center p-8" style="background-color:#008f00;">
     <h1 class="text-4xl font-bold">Start Your 14-Day Free Trial</h1>
@@ -44,7 +83,7 @@
       </div>
       <label class="block font-semibold" style="color:#5e5e5e;">Pick a Username</label>
       <input type="text" name="username" id="username" value="{{ old('username') }}"
-             class="w-full border rounded p-2 focus:ring focus:ring-green-300" style="color:#070505;">
+             class="w-full border rounded p-2 focus:ring focus:ring-green-300" style="color:#070505;" placeholder="Pick a Username">
 
        <p id="urlPreview" class="mt-1 text-sm font-semibold" style="color:#008f00;"></p>
 
@@ -208,104 +247,4 @@
 </body>
 </html>
 
-<script>
-  const usernameInput = document.getElementById('username');
-  const urlPreview = document.getElementById('urlPreview');
 
-  if(usernameInput){
-    usernameInput.addEventListener('input', function() {
-      if(this.value.length > 0) {
-        urlPreview.textContent = this.value + ".myeasystore.in";
-      } else {
-        urlPreview.textContent = "";
-      }
-    });
-  }
-</script>
-<script>
-const usernameInput = document.getElementById("username");
-const urlPreview = document.getElementById("urlPreview");
-
-usernameInput.addEventListener("input", function() {
-    if(this.value.trim().length > 0) {
-        urlPreview.textContent = this.value.trim() + ".myeasystore.in";
-    } else {
-        urlPreview.textContent = "";
-    }
-});
-</script>
-<script>
-document.getElementById("storeForm").addEventListener("submit", function(e) {
-    let valid = true;
-
-    // Clear previous errors
-    document.querySelectorAll("span[id$='Error']").forEach(el => el.textContent = "");
-
-    // Username validation
-    let username = document.getElementById("username").value.trim();
-    if (username.length < 4 || username.length > 35 || !/^[a-zA-Z0-9]+$/.test(username)) {
-        document.getElementById("usernameError").textContent =
-          "Invalid username: 4–35 chars, only letters/numbers.";
-        valid = false;
-    }
-
-    // Store Name validation
-    let storeName = document.querySelector("input[name='store_name']").value.trim();
-    if (storeName.length < 3) {
-        document.getElementById("store_nameError").textContent =
-          "Store name must be at least 3 characters.";
-        valid = false;
-    }
-
-    // Address validation
-    let address = document.querySelector("input[name='address']").value.trim();
-    if (address.length < 5) {
-        document.getElementById("addressError").textContent =
-          "Address must be at least 5 characters.";
-        valid = false;
-    }
-
-    // Category validation
-    let category = document.querySelector("select[name='category']").value;
-    if (category === "") {
-        document.getElementById("categoryError").textContent =
-          "Please select a store category.";
-        valid = false;
-    }
-
-    // Owner Name validation
-    let ownerName = document.querySelector("input[name='owner_name']").value.trim();
-    if (ownerName.length < 4) {
-        document.getElementById("owner_nameError").textContent =
-          "Owner name must be at least 4 characters.";
-        valid = false;
-    }
-
-    // Phone validation
-    let phone = document.querySelector("input[name='phone']").value.trim();
-    if (!/^\d{10}$/.test(phone)) {
-        document.getElementById("phoneError").textContent =
-          "Phone number must be exactly 10 digits.";
-        valid = false;
-    }
-
-    // Email validation
-    let email = document.querySelector("input[name='email']").value.trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        document.getElementById("emailError").textContent =
-          "Please enter a valid email address.";
-        valid = false;
-    }
-
-    // Terms validation
-    let terms = document.querySelector("input[name='terms']").checked;
-    if (!terms) {
-        document.getElementById("termsError").textContent =
-          "You must agree to the Terms & Conditions.";
-        valid = false;
-    }
-
-    if (!valid) e.preventDefault(); // stop form submission
-
-})
-</script>
