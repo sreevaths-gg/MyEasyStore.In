@@ -5,101 +5,9 @@
   <title>Easy Ecommerce Website Builder - Start selling online | MyEasyStore</title>
      <link rel="icon" type="image/png"  sizes="32x32" href="{{ asset('images/favicon.png') }}">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <style>
     .brand-green { color: #005200; }
     .bg-brand-green { background-color: #005200; }
-.sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  top: 0; left: 0;
-  background-color: #ffffff;
-  overflow-x: hidden;
-  transition: 0.3s;
-  padding-top: 60px;
-  z-index: 1001; /* above overlay */
-}
-/* Overlay background */
-#overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5); /* semi-transparent black */
-  display: none; /* hidden by default */
-  z-index: 1000; /* below sidebar */
-}
-.sidebar a {
-  padding: 12px 24px;
-  text-decoration: none;
-  font-size: 18px;
-  color: #008f00; /* green text */
-  display: block;
-}
-
-.sidebar a:hover {
-  background-color: #f0f0f0;
-}
-
-.closeBtn {
-  position: absolute;
-  top: 20px; right: 25px;
-  font-size: 30px;
-  color: #008f00;
-  cursor: pointer;
-}
-
-.trialBtn {
-  background-color: #008f00;
-  color: white;
-  font-size: 16px;
-  padding: 10px 20px;
-  margin: 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.trialBtn:hover {
-  background-color: #006f00;
-}
-
-.sidebar-footer {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.sidebar-footer .logo {
-  width: 80px;
-  margin-bottom: 10px;
-}
-
-.brand-heading {
-  color: #008f00;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.sidebar-footer p {
-  color: #008f00;
-  font-size: 14px;
-  margin: 5px 0;
-}
-.contact-item {
-  text-align: left;       /* aligns the whole line left */
-  font-size: 16px;        /* adjust text size */
-  color: #008f00;         /* green text */
-  margin: 5px 15px;          /* spacing between lines */
-  margin:
-}
-
-.contact-item i {
-  margin-right: 8px;      /* space between icon and text */
-  color: #008f00;         /* make icon green too */
-  font-size: 18px;        /* slightly larger icon */
-}
 
   </style>
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -110,52 +18,22 @@
 
   <!-- Navbar -->
   <nav class="bg-brand-green text-white p-4 flex justify-between">
-     <div class="flex items-center">
-    <div id="menuBtn" class="hamburger">&#9776;</div>
-    <span class="ml-4 font-bold">MyEasyStore</span>
-    </div>
+    <div class="font-bold text-xl">MyEasyStore</div>
     <div class="space-x-6 font-semibold">
       <a href="#features">Features</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
-     <a href="{{ route('store.form') }}"    class="bg-white px-3 py-1 rounded"     style="color:#008f00;">    Start Free Trial </a>
+     <a href="storeform.html"    class="bg-white px-3 py-1 rounded"     style="color:#008f00;">    Start Free Trial </a>
     </div>
 
   </nav>
-<!-- Sidebar (place here, right after header) -->
-<div id="sidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closeBtn" id="closeBtn">&times;</a>
-  <h1 class="sidebar-title" style=" color: #008f00;   text-align: center; font-size: 25px;   margin: 10px 0 20px;   font-weight: bold;  ">Menu </h1>
-  <a href="#home">HOME</a>
-  <a href="#pricing">PRICING PLANS</a>
-  <a href="#howitworks">HOW IT WORKS</a>
-  <a href="#features">FEATURES</a>
-  <a href="#demostores">DEMO STORES</a>
-  <a href="#testimonials">TESTIMONIALS</a>
-  <a href="#faq">FAQ</a>
-  <a href="#about">ABOUT</a>
-  <a href="#blog">BLOG</a>
 
-  <!-- Start Free Trial button -->
-  <button class="bg-brand-green text-white rounded font-semibold ml-6" style="color:#ffffff"><a href="{{ route('store.form') }}"     > Start  free trial</a></button>
-
-  <!-- Logo + heading -->
-  <div class="sidebar-footer ml-6">
-    <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9teWVhc3lzdG9yZS1sb2dvLWdyZWVuLndlYnAifQ==" alt="MyEasyStore Logo" class="logo">
-    <h3 class="contact-item brand-heading">MyEasyStore</h3>
-
-    <!-- Contact -->
-    <p class="contact-item"><i class="fas fa-comments" style="text-align: left;"></i> Chat Now</p>
-    <p class="contact-item"><i class="fas fa-envelope" style="text-align: left;"></i> hello@myeasystore.in</p>
-  </div>
-</div>
-<div id="overlay"></div>
   <!-- Title Section -->
-  <section id="home" class="p-12 grid md:grid-cols-2 gap-6 items-center">
+  <section class="p-12 grid md:grid-cols-2 gap-6 items-center">
     <div>
       <h1 class="text-4xl font-bold brand-green" style="font-size:40px;">Easy Ecommerce <br>Website Builder</h1>
       <p class="mt-4 text-gray-600">Sell directly to customers. Pay 0% commissions.</p>
-      <button class="mt-6 bg-brand-green text-white px-6 py-3 rounded font-semibold">  <a href="{{ route('store.form') }}"  class="mt-6 bg-brand-green text-white px-6 py-3 rounded font-semibold"   > Start 14-day free trial</a></button>
+      <button class="mt-6 bg-brand-green text-white px-6 py-3 rounded font-semibold">  <a href="storeform.html"  class="mt-6 bg-brand-green text-white px-6 py-3 rounded font-semibold"   > Start 14-day free trial</a></button>
     </div>
     <div>
       <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9oZXJvL3Byb2R1Y3QtaGVhZHBob25lcy53ZWJwIn0="
@@ -164,7 +42,7 @@
   </section>
 
   <!-- MyEasyStore in Action -->
-  <section  class="p-12 grid md:grid-cols-2 gap-6 items-center bg-gray-100" style="background-color: #90EE90;">
+  <section class="p-12 grid md:grid-cols-2 gap-6 items-center bg-gray-100" style="background-color: #90EE90;">
     <div>
       <p class=" brand-green" style=" text-transform: uppercase;" style="font-size:10px;">MyEasyStore in Action</p>
       <h1 class="" style="font-size: 1.75rem">Take a 10-minute walkthrough of the full <strong>MyEasyStore</strong> platform.</h1>
@@ -178,7 +56,7 @@
 
   <!-- How It Works -->
  <!-- HOW IT WORKS Section -->
-<section id="howitworks" class="bg-gray-100 py-16" >
+<section class="bg-gray-100 py-16" id="how-it-works">
   <div class="text-center mb-12">
     <h2 class="text-4xl font-bold brand-green">How It Works</h2>
     <p class="mt-4 text-gray-600">Set up your store in 4 simple steps</p>
@@ -352,7 +230,7 @@
   </div>
 </section>
 
-<section id="demostores" class="py-16 bg-gray-50" >
+<section class="py-16 bg-gray-50" id="everyone">
   <div class="text-center mb-12">
     <h2 class="text-3xl font-bold brand-green">MyEasyStore is for Everyone</h2>
     <p class="mt-4 text-gray-600">Visit any demo store below, place a test order, and get inspired!</p>
@@ -465,7 +343,7 @@
 
 
   <!-- In the News -->
- <section class="py-16 bg-white" id="inthenews">
+ <section class="py-16 bg-white" id="in-the-news">
   <div class="text-center mb-12">
     <h2 class="text-3xl font-bold brand-green">In the news</h2>
   </div>
@@ -658,56 +536,3 @@
 
 </body>
 </html>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const sidebar = document.getElementById("sidebar");
-  const overlay = document.getElementById("overlay");
-  const menuBtn = document.getElementById("menuBtn");
-  const openSidebarBtn = document.getElementById("openSidebarBtn");
-  const closeBtn = document.getElementById("closeBtn");
-
-  // Open sidebar
-  if (menuBtn) {
-    menuBtn.onclick = function() {
-      sidebar.style.width = "250px";
-      overlay.style.display = "block";
-    };
-  }
-  if (openSidebarBtn) {
-    openSidebarBtn.onclick = function() {
-      sidebar.style.width = "250px";
-      overlay.style.display = "block";
-    };
-  }
-
-  // Close sidebar with X button
-  if (closeBtn) {
-    closeBtn.onclick = function() {
-      sidebar.style.width = "0";
-      overlay.style.display = "none";
-    };
-  }
-
-  // Close sidebar when clicking outside (overlay)
-  overlay.onclick = function() {
-    sidebar.style.width = "0";
-    overlay.style.display = "none";
-  };
-
-  // Smooth scroll + close sidebar when clicking a link
-  document.querySelectorAll(".sidebar a").forEach(link => {
-    link.addEventListener("click", function(e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href"); // e.g. "#faq"
-      const target = document.querySelector(targetId);
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
-      }
-      sidebar.style.width = "0";
-      overlay.style.display = "none";
-    });
-  });
-});
-</script>
-
-
