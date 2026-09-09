@@ -1,4 +1,5 @@
 
+
   <!-- Footer (same as myeasystore.blade.php) -->
   <footer class="bg-brand-green text-white p-12 mt-12">
     <div class="grid md:grid-cols-4 gap-6 mb-8">
@@ -53,3 +54,5 @@
 
 </body>
 </html>
+
+
