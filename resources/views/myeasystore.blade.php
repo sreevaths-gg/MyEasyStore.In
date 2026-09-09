@@ -25,9 +25,9 @@
     <span class="ml-4 font-bold">MyEasyStore</span>
     </div>
     <div class="space-x-6 font-semibold">
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
+
+      <a href="{{ route('store.pricing') }}">Pricing Plans</a>
+
      <a href="{{ route('store.form') }}"    class="bg-white px-3 py-1 rounded"     style="color:#008f00;">    Start Free Trial </a>
     </div>
 
@@ -36,15 +36,15 @@
 <div id="sidebar" class="sidebar">
   <a href="javascript:void(0)" class="closeBtn" id="closeBtn">&times;</a>
   <h1 class="sidebar-title" style=" color: #008f00;   text-align: center; font-size: 25px;   margin: 10px 0 20px;   font-weight: bold;  ">Menu </h1>
-  <a href="#home">HOME</a>
-  <a href="#pricing">PRICING PLANS</a>
-  <a href="#howitworks">HOW IT WORKS</a>
-  <a href="#features">FEATURES</a>
-  <a href="#demostores">DEMO STORES</a>
-  <a href="#testimonials">TESTIMONIALS</a>
-  <a href="#faq">FAQ</a>
+  <a href="{{route('store.index') }}#home">HOME</a>
+  <a href="{{route('store.index') }}#pricing">PRICING PLANS</a>
+  <a href="{{route('store.index') }}#howitworks">HOW IT WORKS</a>
+  <a href="{{route('store.index') }}#features">FEATURES</a>
+  <a href="{{route('store.index') }}#demostores">DEMO STORES</a>
+  <a href="{{route('store.index') }}#testimonials">TESTIMONIALS</a>
+  <a href="{{route('store.index') }}#faq">FAQ</a>
   <a href="{{route('store.about') }}">ABOUT</a>
-  <a href="#blog">BLOG</a>
+  <a href="{{route('store.index') }}#blog">BLOG</a>
 
   <!-- Start Free Trial button -->
   <button class="bg-brand-green text-white rounded font-semibold ml-6" style="color:#ffffff"><a href="{{ route('store.form') }}"     > Start  free trial</a></button>
@@ -156,14 +156,14 @@
   <div class="max-w-6xl mx-auto space-y-12 px-0">
 
     <!-- Row 1 -->
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-3 gap-3">
       <!-- Feature 1 -->
       <div class="flex items-center bg-white rounded shadow p-4">
         <div class="w-16 h-16 flex items-center justify-center   rounded mr-4">
           <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9mZWF0dXJlcy9tYW5hZ2UtY2F0YWxvZ3VlLndlYnAifQ==" />
         </div>
         <div>
-          <h2 class="text-lg font-semibold brand-green">Manage Catalogue</h2>
+          <h2 class="text-lg font-semibold brand-green" style="color:#008f00;font-size:20px;">Manage Catalogue</h2>
           <p class="text-gray-600 text-sm" style="font-size: 0.9em;">Create a digital catalogue with different types of products, categories and add-ons.</p>
         </div>
       </div>
@@ -174,7 +174,7 @@
           <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9mZWF0dXJlcy9vcmRlcnMtZGFzaGJvYXJkLndlYnAifQ=="/>
         </div>
         <div>
-          <h3 class="text-lg font-semibold brand-green">Order Dashboard</h3>
+          <h3 class="text-lg font-semibold brand-green" style="color:#008f00;font-size:20px;">Order Dashboard</h3>
           <p class="text-gray-600 text-sm" style="font-size: 0.9em;">View and download complete order history and reports. Keep track of order status.</p>
         </div>
       </div>
@@ -185,21 +185,21 @@
           <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9mZWF0dXJlcy9vbmxpbmUtcGF5bWVudC53ZWJwIn0="/>
         </div>
         <div>
-          <h3 class="text-lg font-semibold brand-green">Online Payment</h3>
+          <h3 class="text-lg font-semibold brand-green" style="color:#008f00;font-size:20px;">Online Payment</h3>
           <p class="text-gray-600 text-sm" style="font-size: 0.9em;">Accept payments via debit/credit card, UPI, wallet, etc. through multiple payment providers.</p>
         </div>
       </div>
     </div>
 
     <!-- Row 2 -->
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-3 gap-3">
       <!-- Feature 4 -->
       <div class="flex items-center bg-white rounded shadow p-4">
         <div class="w-16 h-16 flex items-center justify-center rounded mr-4">
           <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9mZWF0dXJlcy93aGF0c2FwcC1ub3RpZmljYXRpb24ud2VicCJ9" />
         </div>
         <div>
-          <h3 class="text-lg font-semibold brand-green">WhatsApp Notifications</h3>
+          <h3 class="text-lg font-semibold brand-green" style="color:#008f00;font-size:20px;">WhatsApp Notifications</h3>
           <p class="text-gray-600 text-sm" style="font-size: 0.9em;">Receive order notifications on WhatsApp directly from customers.</p>
         </div>
       </div>
@@ -210,7 +210,7 @@
           <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9mZWF0dXJlcy9kZWxpdmVyeS1pbnRlZ3JhdGlvbi53ZWJwIn0=" />
         </div>
         <div>
-          <h3 class="text-lg font-semibold brand-green">Delivery Integration</h3>
+          <h3 class="text-lg font-semibold brand-green" style="color:#008f00;font-size:20px;">Delivery Integration</h3>
           <p class="text-gray-600 text-sm" style="font-size: 0.9em;">Ship orders directly from your online store. Pick from our multiple delivery partners.</p>
         </div>
       </div>
@@ -221,7 +221,7 @@
           <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9mZWF0dXJlcy9zZW8tcmVhZHkud2VicCJ9"/>
         </div>
         <div>
-          <h3 class="text-lg font-semibold brand-green">SEO Ready</h3>
+          <h3 class="text-lg font-semibold brand-green" style="color:#008f00;font-size:20px;">SEO Ready</h3>
           <p class="text-gray-600 text-sm" style="font-size: 0.9em;">Your online store is SEO ready, no coding required.</p>
         </div>
       </div>
@@ -404,21 +404,21 @@
     <h2 class="text-3xl font-bold brand-green text-center">Visit our blog</h2>
     <p class="text-center text-gray-600 mb-8">Get the latest trends and expert tips to grow your online business.</p>
     <div class="grid md:grid-cols-4 gap-6">
-      <div class="bg-gray-100 p-6 rounded-lg shadow text-center">
+      <div class=" brand-green  p-6 rounded-lg shadow text-center">
         <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9ibG9nLzEud2VicCJ9" alt="Blog 1" class="rounded mb-4 mx-auto">
-        <h3 class="font-bold brand-green">Why selling products on your own platform is important</h3>
+
       </div>
-      <div class="bg-gray-100 p-6 rounded-lg shadow text-center">
+      <div class=" brand-green  p-6 rounded-lg shadow text-center">
         <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9ibG9nLzIud2VicCJ9" alt="Blog 2" class="rounded mb-4 mx-auto">
-        <h3 class="font-bold brand-green">How to set up your online store like a pro</h3>
+
       </div>
-      <div class="bg-gray-100 p-6 rounded-lg shadow text-center">
+      <div class=" brand-green  p-6 rounded-lg shadow text-center">
         <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9ibG9nLzUud2VicCJ9" alt="Blog 3" class="rounded mb-4 mx-auto">
-        <h3 class="font-bold brand-green">Having a clear online presence makes ordering seamless</h3>
+
       </div>
-      <div class="bg-gray-100 p-6 rounded-lg shadow text-center">
+      <div class=" brand-green  p-6 rounded-lg shadow text-center">
         <img src="https://d1ng0pylk0lclb.cloudfront.net/eyJidWNrZXQiOiJ3aGF0c2FwcC1vcmRlciIsImtleSI6Im1hcmtldGluZy9ibG9nLzQud2VicCJ9" alt="Blog 4" class="rounded mb-4 mx-auto">
-        <h3 class="font-bold brand-green">Expert tips to use social media correctly</h3>
+
       </div>
     </div>
   </section>

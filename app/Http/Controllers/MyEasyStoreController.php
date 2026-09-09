@@ -46,4 +46,9 @@ class MyEasyStoreController extends Controller
         return view('features');
     }
 
+
+     public function pricing()
+    {
+        return view('pricing');
+    }
 }

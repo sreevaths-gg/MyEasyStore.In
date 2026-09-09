@@ -18,8 +18,10 @@ Route::get('/', function () {
 });
 
 
-Route::get('/myeasystore.in', [MyEasyStoreController::class, 'index']);
+Route::get('/myeasystore.in', [MyEasyStoreController::class, 'index'])->name('store.index');;
 Route::get('/myeasystore.in/checkout', [MyEasyStoreController::class, 'showForm'])->name('store.form');
 Route::post('/myeasystore.in/checkout', [MyEasyStoreController::class, 'store'])->name('store.create');
 Route::get('/myeasystore.in/about', [MyEasyStoreController::class, 'about'])->name('store.about');
 Route::get('/myeasystore.in/features', [MyEasyStoreController::class, 'features'])->name('store.features');
+Route::get('/myeasystore.in/pricing', [MyEasyStoreController::class, 'pricing'])->name('store.pricing');
+
